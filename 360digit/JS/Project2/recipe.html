@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <form>
+      <label for="desserts"
+        >Please enter the desserts you like one by one:
+      </label>
+      <input type="text" id="dsrt" name="dessert" value="" /><br />
+      <input type="submit" onclick=" return addDessert()" value="Submit" />
+    </form>
+
+    <script async defer>
+      var arry = [];
+      addDessert = () => {
+        var dsrt = document.getElementById("dsrt").value;
+        arry.push(dsrt);
+        alert(arry.toString());
+        document.getElementById("dsrt").value = "";
+        return false;
+      };
+    </script>
+  </body>
+</html>
