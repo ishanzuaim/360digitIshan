@@ -21,30 +21,31 @@
       function incrementWatch(x) {
         checkValue(x);
         if (x == 2) {
-          console.log(
+
+        }
+      }
+
+      incrementWatch() {
+        arr[2]+=1
+        if(arr[2] == 60) {
+          arr[2] = 0
+          arr[1]+=1
+        }
+        if(arr[1] == 60) {
+          arr[1] = 0
+          arr[0] +=1
+        }
+        if(arr[0] == 24) {
+          arr[0] = 0
+        }
+        console.log(
             `${padLeadingZeros(arr[0], 2)}:${padLeadingZeros(
               arr[1],
               2
             )}:${padLeadingZeros(arr[2], 2)}`
           );
-        }
       }
 
-      var checkValue = (x) => {
-        if (x == 0) {
-          if (arr[0] == 23) {
-            arr[0] = 0;
-          } else {
-            arr[0] += 1;
-          }
-        } else {
-          if (arr[x] == 59) {
-            arr[x] = 1;
-          } else {
-            arr[x] += 1;
-          }
-        }
-      };
       setInterval(() => {
         incrementWatch(2);
       }, 1000);
