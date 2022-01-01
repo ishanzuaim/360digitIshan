@@ -18,43 +18,30 @@
         while (s.length < size) s = "0" + s;
         return s;
       }
-      function incrementWatch(x) {
-        checkValue(x);
-        if (x == 2) {
-
+      function incrementWatch() {
+        arr[2] += 1;
+        if (arr[2] == 60) {
+          arr[2] = 0;
+          arr[1] += 1;
         }
-      }
-
-      incrementWatch() {
-        arr[2]+=1
-        if(arr[2] == 60) {
-          arr[2] = 0
-          arr[1]+=1
+        if (arr[1] == 60) {
+          arr[1] = 0;
+          arr[0] += 1;
         }
-        if(arr[1] == 60) {
-          arr[1] = 0
-          arr[0] +=1
-        }
-        if(arr[0] == 24) {
-          arr[0] = 0
+        if (arr[0] == 24) {
+          arr[0] = 0;
         }
         console.log(
-            `${padLeadingZeros(arr[0], 2)}:${padLeadingZeros(
-              arr[1],
-              2
-            )}:${padLeadingZeros(arr[2], 2)}`
-          );
+          `${padLeadingZeros(arr[0], 2)}:${padLeadingZeros(
+            arr[1],
+            2
+          )}:${padLeadingZeros(arr[2], 2)}`
+        );
       }
 
       setInterval(() => {
-        incrementWatch(2);
+        incrementWatch();
       }, 1000);
-      setInterval(() => {
-        incrementWatch(1);
-      }, 60000);
-      setInterval(() => {
-        incrementWatch(0);
-      }, 86400000);
     </script>
   </body>
 </html>
